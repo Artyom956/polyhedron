@@ -6,7 +6,8 @@ from shadow.polyedr import Polyedr
 
 tk = TkDrawer()
 try:
-    for name in ["middle_square", "square", "inclined_plane", "ccc", "cube", "box"]:
+    for name in ["middle_square", "square", "inclined_plane",
+                 "ccc", "cube", "box"]:
         print(f"Рассматривается полиэдр {name}")
         Polyedr(f"data/{name}.geom").draw(tk)
         input("Hit 'Return' to continue -> ")
