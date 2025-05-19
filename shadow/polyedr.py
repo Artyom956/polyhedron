@@ -89,7 +89,7 @@ class Edge:
         return 0  # Ребро является невидимым или частично видимым
 
     # Проверяет рёбра на параллельность осям координат
-    def is_parallel(self, delta):
+    def is_parallel(self):
         delta = 0.000001
         direction = self.fin - self.beg  # Вектор направления ребра
         if abs(direction.y) < delta and abs(direction.z) < delta or \
