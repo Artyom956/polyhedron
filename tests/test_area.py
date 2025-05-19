@@ -19,13 +19,33 @@ def test_plane_outside_cube():
         f.write("-1.0 -1.0 1.0\n")
         f.write("-1.0 1.0 1.0\n")
         f.write("4 1 2 3 4\n")
+    tk = TkDrawer()
+    poly = Polyedr(test_file)
+    poly.draw(tk)
+    expected_area = 400.0
+    assert abs(poly.total_area - expected_area) < 1e-6
+    import os
+    os.remove(test_file)
+
+# Тот же квадрат без прорисовки
+
+
+def test_plane_outside_cube_no_draw():
+    test_file = "test_plane_outside.geom"
+    with open(test_file, 'w') as f:
+        f.write("10.0 0.0 0.0 0.0\n")
+        f.write("4 1 4\n")
+        f.write("1.0 1.0 1.0\n")
+        f.write("1.0 -1.0 1.0\n")
+        f.write("-1.0 -1.0 1.0\n")
+        f.write("-1.0 1.0 1.0\n")
+        f.write("4 1 2 3 4\n")
     poly = Polyedr(test_file)
     poly.area()
     expected_area = 400.0
     assert abs(poly.total_area - expected_area) < 1e-6
     import os
     os.remove(test_file)
-
 # Многоугольник с рёбрами, не параллельными осям координат
 
 
